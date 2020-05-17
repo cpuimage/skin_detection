@@ -90,15 +90,17 @@ void rgb2yuv420(uint8_t *rgb_src, uint8_t *y_src, uint8_t *u_src, uint8_t *v_src
                 int32_t channels) {
     for (int32_t y = 0; y < height; y++) {
         uint8_t *scanLine = rgb_src + width * y * channels;
+        bool even_y = y % 2 == 0;
         for (int32_t x = 0; x < width; x++) {
+            bool even_x = x % 2 == 0;
             uint8_t r = scanLine[0];
             uint8_t g = scanLine[1];
             uint8_t b = scanLine[2];
             *(y_src++) = ((66 * r + 129 * g + 25 * b + 128) >> 8) + 16;
-            if (y % 2 == 0 && x % 2 == 0) {
+            if (even_y && even_x) {
                 *(u_src++) = ((-38 * r - 74 * g + 112 * b + 128) >> 8) + 128;
             } else {
-                if (x % 2 == 0) {
+                if (even_x) {
                     *(v_src++) = ((112 * r - 94 * g - 18 * b + 128) >> 8) + 128;
                 }
             }
