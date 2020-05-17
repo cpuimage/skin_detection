@@ -45,7 +45,7 @@ static void browse(const char *url) {
     }
 }
 
-#elif __APPLE__
+#else // __APPLE__
 
 #include        <sys/types.h>
 #include        <sys/wait.h>
