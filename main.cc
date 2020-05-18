@@ -99,10 +99,7 @@ void rgb2yuv420(uint8_t *rgb_src, uint8_t *y_src, uint8_t *u_src, uint8_t *v_src
             *(y_src++) = ((66 * r + 129 * g + 25 * b + 128) >> 8) + 16;
             if (even_y && even_x) {
                 *(u_src++) = ((-38 * r - 74 * g + 112 * b + 128) >> 8) + 128;
-            } else {
-                if (even_x) {
-                    *(v_src++) = ((112 * r - 94 * g - 18 * b + 128) >> 8) + 128;
-                }
+                *(v_src++) = ((112 * r - 94 * g - 18 * b + 128) >> 8) + 128;
             }
             scanLine += channels;
         }
