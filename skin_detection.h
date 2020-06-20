@@ -16,6 +16,8 @@
 
 typedef unsigned char uint8_t;
 
+int SkinPixel(const uint8_t y, const uint8_t cb, const uint8_t cr);
+
 bool MbHasSkinColor(const uint8_t *y_src,
                     const uint8_t *u_src,
                     const uint8_t *v_src,

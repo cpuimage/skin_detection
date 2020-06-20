@@ -44,7 +44,7 @@ static int EvaluateSkinColorDifference(int cb, int cr, int idx) {
     return skin_diff;
 }
 
-static int SkinPixel(const uint8_t y, const uint8_t cb, const uint8_t cr) {
+int SkinPixel(const uint8_t y, const uint8_t cb, const uint8_t cr) {
     if (y < y_low || y > y_high) {
         return 0;
     } else {
